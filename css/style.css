@@ -1,0 +1,79 @@
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-snap-type: y mandatory;
+}
+
+h1 {
+    text-align: center;
+    color: #00008b;
+    background-color: #ffefd5;
+    padding: 20px;
+    /*font-size: clamp(54px, 11.25vw, 135px);*/ /* Increased by 150% */
+    scroll-snap-align: start;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(255, 239, 213);
+    color: #00008b;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    
+    
+}
+
+p {
+    font-size: 3rem; /* Increased from 2rem */
+    
+}
+
+div {
+    padding: 15px; /* Increased from 10px */
+    min-width: 400px; /* Increased from 400px */   
+}
+
+.me{
+    text-align: center;
+    font-size: 2.25rem; /* Increased from 1.5rem */
+    scroll-snap-align: start;
+}
+
+.widget-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 15px; /* Increased from 10px */
+    width: 100%;
+    padding: 15px; /* Increased from 10px */
+    
+}
+
+/* Make widgets more responsive */
+.time-widget {
+    flex: 1;
+    text-align: left;
+    min-width: 300px; /* Increased from 300px */
+}
+
+/* Center text when viewport width causes widgets to stack */
+@media screen and (max-width: 1000px) {
+    .time-widget {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+.spotify-widget {
+    flex: 1;
+    min-height: 330px; /* Increased from 330px */
+    min-width: 200px; /* Increased from 200px */
+}
+

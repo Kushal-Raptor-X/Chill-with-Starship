@@ -1,45 +1,32 @@
-
 let ss;
-//var time;
+let scaleValue;
 
 function preload() {
-  // Load model with normalise parameter set to true
   ss = loadModel('ss.obj', true);
-  //getTime();
 }
 
-
-
 function setup() {
-  createCanvas(displayWidth, displayHeight, WEBGL);
+  createCanvas(windowWidth, windowHeight*0.65, WEBGL);
+  updateScale();
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight*0.65);
+  updateScale();
+}
+
+function updateScale() {
+  // Scale based on the smaller dimension
+  scaleValue = min(width, height) / 400; // Adjust 400 based on your needs
 }
 
 function draw() {
-  background(110, 110, 110);
-  scale(3); // Scaled to make model fit into canvas
-    rotateX(frameCount * 0.3);
-    rotateY(frameCount * 1);
-    rotateZ(frameCount * 0.3);
+  background(255, 239, 213);
+  scale(scaleValue * 1.5); // Multiply by 2 to maintain your original scaling
+  rotateX(frameCount * 0.3);
+  rotateY(frameCount * 1);
+  rotateZ(frameCount * 0.3);
 
-  normalMaterial(); // For effect
+  normalMaterial();
   model(ss);
-
-
 }
-
-// async function getTime(){
-//     var response = await fetch("http://worldtimeapi.org/api/timezone/Etc/GMT-5");
-//     var responseJSON = await response.json();
-  
-//     var datetime = responseJSON.datetime;
-//     //var date = datetime.slice(0,10);
-//     var time = datetime.slice(12,20);
-    
-//     if(time !== undefined){
-//         text(time,displayWidth-100,100);
-//         console.log(time);
-//     }
-// }
-
-//code to paste in index.html's body
-//<iframe src="https://open.spotify.com/embed/playlist/5FNzjB7gjPw5soHsczDQ8F" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
